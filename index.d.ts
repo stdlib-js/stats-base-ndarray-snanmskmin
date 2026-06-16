@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2025 The Stdlib Authors.
@@ -16,17 +16,28 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@esm/index.d.ts"/>
+
+import { float32ndarray, uint8ndarray } from '@stdlib/types/ndarray';
 
 /**
-* Calculate the minimum value of a one-dimensional single-precision floating-point ndarray according to a mask, ignoring `NaN` values.
+* Computes the minimum value of a one-dimensional single-precision floating-point ndarray according to a mask, ignoring `NaN` values.
 *
-* @module @stdlib/stats-base-ndarray-snanmskmin
+* ## Notes
+*
+* -   The function expects the following ndarrays:
+*
+*     -   a one-dimensional input ndarray.
+*     -   a one-dimensional mask ndarray.
+*
+* @param arrays - array-like object containing ndarrays
+* @returns minimum value
 *
 * @example
 * var Float32Vector = require( '@stdlib/ndarray-vector-float32' );
 * var Uint8Vector = require( '@stdlib/ndarray-vector-uint8' );
-* var snanmskmin = require( '@stdlib/stats-base-ndarray-snanmskmin' );
 *
 * var x = new Float32Vector( [ 1.0, -2.0, 4.0, 2.0, NaN ] );
 * var mask = new Uint8Vector( [ 0, 0, 1, 0, 0 ] );
@@ -34,12 +45,9 @@
 * var v = snanmskmin( [ x, mask ] );
 * // returns -2.0
 */
-
-// MODULES //
-
-var main = require( './main.js' );
+declare function snanmskmin( arrays: [ float32ndarray, uint8ndarray ] ): number;
 
 
 // EXPORTS //
 
-module.exports = main;
+export = snanmskmin;
